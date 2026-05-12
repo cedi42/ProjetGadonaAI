@@ -2,8 +2,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
 }
 
-body {
-  font-family: 'Circular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: 'annabel';
+  src: url('./assets/fonts/annabel.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'darling';
+  src: url('./assets/fonts/darling.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

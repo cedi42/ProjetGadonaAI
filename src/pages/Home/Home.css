@@ -37,6 +37,7 @@
 }
 
 .topbar-title {
+  font-family: 'annabel', cursive;
   font-size: 14px;
   font-weight: 600;
   background: linear-gradient(90deg, #fff, #888);

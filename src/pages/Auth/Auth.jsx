@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Auth() {
   const [tab, setTab] = useState('login')
   const navigate = useNavigate()
+  const [direction, setDirection] = useState('right')
   return (
     <div className="auth-wrapper">
       <div className="auth-container">
@@ -19,22 +20,28 @@ export default function Auth() {
         <div className="auth-card">
 
           <div className="auth-tabs">
-            <button
-              className={`auth-tab ${tab === 'login' ? 'active' : ''}`}
-              onClick={() => setTab('login')}
-            >
-              Connexion
-            </button>
-            <button
-              className={`auth-tab ${tab === 'register' ? 'active' : ''}`}
-              onClick={() => setTab('register')}
-            >
-              Inscription
-            </button>
+       <button
+  className={`auth-tab ${tab === 'login' ? 'active' : ''}`}
+  onClick={() => {
+    setDirection('left')   
+    setTab('login')
+  }}
+>
+  Connexion
+</button>
+<button
+  className={`auth-tab ${tab === 'register' ? 'active' : ''}`}
+  onClick={() => {
+    setDirection('right') 
+    setTab('register')
+  }}
+>
+  Inscription
+</button>
           </div>
 
           {tab === 'login' ? (
-            <div className="auth-form">
+            <div className="auth-form" key="login" data-dir={direction}>
               <div className="form-group">
                 <label>Adresse e-mail</label>
                 <input type="email" placeholder="exemple@email.com" />
@@ -55,7 +62,7 @@ export default function Auth() {
               </button>
             </div>
           ) : (
-            <div className="auth-form">
+            <div className="auth-form" key="register" data-dir={direction}>
               <div className="form-group">
                 <label>Nom complet</label>
                 <input type="text" placeholder="Jean Dupont" />
