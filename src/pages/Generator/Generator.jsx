@@ -1,17 +1,18 @@
 import { useState, useRef } from 'react'
+import '../../styles/global.css'
 import './Generatox.css'
 import Player from '../../components/Player/Player'
 import gadonaLogo from '../../assets/gadonaNO.png'
 import { useNavigate } from 'react-router-dom'
 
 
-const recommendations = [
+/*const recommendations = [
   { id: 1, name: 'Nadia Soleil', listeners: '2.4M listeners', initials: 'NS' },
   { id: 2, name: 'Rex Malone', listeners: '1.1M listeners', initials: 'RM' },
   { id: 3, name: 'Yuki Tanaka', listeners: '890K listeners', initials: 'YT' },
   { id: 4, name: 'Luca Ferro', listeners: '3.2M listeners', initials: 'LF' },
   { id: 5, name: 'Amara Mbaye', listeners: '560K listeners', initials: 'AM' },
-]
+]*/
 
 const hints = [
   'Beat trap mélancolique avec piano et cordes',
@@ -93,9 +94,9 @@ export default function Generator() {
            <div className="nav-item" onClick={() => navigate('/home')}>
                 <HomeIcon /> Home
            </div>
-           <div className="nav-item" onClick={() => navigate('/library')}>
+           {/* <div className="nav-item" onClick={() => navigate('/library')}>
                 <LibraryIcon /> Library
-           </div>
+           </div> */}
           </nav>
 
           <div className="sidebar-sep" />
@@ -116,10 +117,10 @@ export default function Generator() {
               {dropdownOpen && (
                 <div className="dropdown">
                   <div className="dropdown-item">Mon profil</div>
-                  <div className="dropdown-item">Mes playlists</div>
+                  {/*<div className="dropdown-item">Mes playlists</div>
                   <div className="dropdown-sep" />
                   <div className="dropdown-item">Paramètres</div>
-                  <div className="dropdown-sep" />
+                  <div className="dropdown-sep" /> */}
                   <div className="dropdown-item logout">Se déconnecter</div>
                 </div>
               )}
@@ -240,7 +241,7 @@ export default function Generator() {
 
         </main>
 
-        {/* SIDEBAR DROITE */}
+        {/* SIDEBAR DROITE 
         <aside className="sidebar-right">
           <div className="sidebar-title">Recommendations</div>
           <div className="follow-list">
@@ -260,7 +261,7 @@ export default function Generator() {
               </div>
             ))}
           </div>
-        </aside>
+        </aside> */}
       </div>
       <div className="player-container">
             <Player />

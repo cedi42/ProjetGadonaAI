@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '../../styles/global.css'
 import './Home.css'
 import Player from '../../components/Player/Player'
 import gadonaLogo from '../../assets/gadonaNO.png'
@@ -11,13 +12,13 @@ const artists = [
   { id: 4, name: 'Luca Ferro', genre: 'Electronic', initials: 'LF' },
 ]
 
-const recommendations = [
+/*const recommendations = [
   { id: 1, name: 'Nadia Soleil', listeners: '2.4M listeners', initials: 'NS' },
   { id: 2, name: 'Rex Malone', listeners: '1.1M listeners', initials: 'RM' },
   { id: 3, name: 'Yuki Tanaka', listeners: '890K listeners', initials: 'YT' },
   { id: 4, name: 'Luca Ferro', listeners: '3.2M listeners', initials: 'LF' },
   { id: 5, name: 'Amara Mbaye', listeners: '560K listeners', initials: 'AM' },
-]
+] */
 
 export default function Home() {
   const navigate = useNavigate()
@@ -58,9 +59,9 @@ export default function Home() {
             <div className="nav-item" onClick={() => navigate('/home')}>
   <HomeIcon /> Home
 </div>
-<div className="nav-item" onClick={() => navigate('/library')}>
+{/* <div className="nav-item" onClick={() => navigate('/library')}>
   <LibraryIcon /> Library
-</div>
+</div> */}
           </nav>
 
           <div className="sidebar-sep" />
@@ -85,10 +86,10 @@ export default function Home() {
               {dropdownOpen && (
                 <div className="dropdown">
                   <div className="dropdown-item">Mon profil</div>
-                  <div className="dropdown-item">Mes playlists</div>
+              {/* <div className="dropdown-item">Mes playlists</div>
                   <div className="dropdown-sep" />
                   <div className="dropdown-item">Paramètres</div>
-                  <div className="dropdown-sep" />
+                  <div className="dropdown-sep" /> */}
                   <div className="dropdown-item logout">Se déconnecter</div>
                 </div>
               )}
@@ -118,7 +119,7 @@ export default function Home() {
           </div>
         </main>
 
-        {/* SIDEBAR DROITE */}
+        {/* SIDEBAR DROITE 
         <aside className="sidebar-right">
           <div className="sidebar-title">Recommendations</div>
           <div className="follow-list">
@@ -138,7 +139,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </aside>
+        </aside> */}
       </div>
         <div className="player-container">
             <Player />
