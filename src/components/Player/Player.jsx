@@ -1,6 +1,15 @@
 import { useState, useRef, useEffect } from 'react'
 import './Player.css'
 
+import { IoMusicalNotesSharp } from "react-icons/io5";
+import { IoPlay } from "react-icons/io5";
+import { IoPause } from "react-icons/io5";
+import { IoPlaySkipBack } from "react-icons/io5";
+import { IoPlaySkipForward } from "react-icons/io5";
+import { IoRepeat } from "react-icons/io5";
+import { LiaRandomSolid } from "react-icons/lia";
+import { IoVolumeLow } from "react-icons/io5";
+
 export default function Player() {
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
@@ -44,7 +53,7 @@ export default function Player() {
       {/* MINI PLAYER */}
       <footer className="player">
         <div className="player-left" onClick={() => setPanelOpen(true)}>
-          <div className="track-img"><MusicIcon /></div>
+          <div className="track-img"><IoMusicalNotesSharp /></div>
           <div>
             <div className="track-title">Midnight Drive</div>
             <div className="track-artist">Nadia Soleil</div>
@@ -54,19 +63,19 @@ export default function Player() {
         <div className="player-center">
           <div className="controls">
             <button className={`ctrl-btn ${shuffle ? 'active' : ''}`} onClick={() => setShuffle(!shuffle)}>
-              <ShuffleIcon />
+              <LiaRandomSolid />
             </button>
             <button className="ctrl-btn" onClick={() => setProgress(0)}>
-              <PrevIcon />
+              <IoPlaySkipBack />
             </button>
             <button className="play-btn" onClick={() => setPlaying(!playing)}>
-              {playing ? <PauseIcon /> : <PlayIcon />}
+              {playing ? <IoPause /> : <IoPlay />}
             </button>
             <button className="ctrl-btn" onClick={() => setProgress(0)}>
-              <NextIcon />
+              <IoPlaySkipForward />
             </button>
             <button className={`ctrl-btn ${repeat ? 'active' : ''}`} onClick={() => setRepeat(!repeat)}>
-              <RepeatIcon />
+              <IoRepeat />
             </button>
           </div>
           <div className="progress-wrap">
@@ -79,7 +88,7 @@ export default function Player() {
         </div>
 
         <div className="player-right">
-          <VolumeIcon />
+          <IoVolumeLow />
           <div className="volume-bar" onClick={handleVolumeClick}>
             <div className="volume-fill" style={{ width: `${volume}%` }} />
           </div>
@@ -103,7 +112,7 @@ export default function Player() {
         </div>
 
         <div className="panel-body">
-          <div className="panel-cover"><MusicIconLarge /></div>
+          <div className="panel-cover"><IoMusicalNotesSharp size={100} /></div>
 
           <div className="panel-track-info">
             <div className="panel-track-name">Midnight Drive</div>
@@ -121,24 +130,24 @@ export default function Player() {
 
             <div className="panel-btns">
               <button className={`panel-ctrl ${shuffle ? 'active' : ''}`} onClick={() => setShuffle(!shuffle)}>
-                <ShuffleIcon />
+                <LiaRandomSolid size={30} />
               </button>
               <button className="panel-ctrl" onClick={() => setProgress(0)}>
-                <PrevIconLg />
+                <IoPlaySkipBack size={30} />
               </button>
               <button className="panel-play" onClick={() => setPlaying(!playing)}>
-                {playing ? <PauseIconLg /> : <PlayIconLg />}
+                {playing ? <IoPause size={25} /> : <IoPlay size={25} />}
               </button>
               <button className="panel-ctrl" onClick={() => setProgress(0)}>
-                <NextIconLg />
+                <IoPlaySkipForward size={30}/>
               </button>
               <button className={`panel-ctrl ${repeat ? 'active' : ''}`} onClick={() => setRepeat(!repeat)}>
-                <RepeatIcon />
+                <IoRepeat size={30} />
               </button>
             </div>
 
             <div className="panel-vol">
-              <VolumeIcon />
+              <IoVolumeLow size={25} />
               <div className="panel-vbar" onClick={handleVolumeClick}>
                 <div className="panel-vfill" style={{ width: `${volume}%` }} />
               </div>
@@ -155,44 +164,6 @@ export default function Player() {
       </div>
     </>
   )
-}
-
-// ICONS
-function MusicIcon() {
-  return <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#444" strokeWidth="1.2"/><circle cx="12" cy="12" r="3" fill="#444"/></svg>
-}
-function MusicIconLarge() {
-  return <svg width="64" height="64" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#333" strokeWidth="0.8"/><circle cx="12" cy="12" r="4" stroke="#444" strokeWidth="0.8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#333" strokeWidth="0.8" strokeLinecap="round"/></svg>
-}
-function PlayIcon() {
-  return <svg width="14" height="14" viewBox="0 0 24 24" fill="#000"><path d="M8 5v14l11-7z"/></svg>
-}
-function PauseIcon() {
-  return <svg width="14" height="14" viewBox="0 0 24 24" fill="#000"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-}
-function PlayIconLg() {
-  return <svg width="22" height="22" viewBox="0 0 24 24" fill="#000"><path d="M8 5v14l11-7z"/></svg>
-}
-function PauseIconLg() {
-  return <svg width="22" height="22" viewBox="0 0 24 24" fill="#000"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-}
-function PrevIcon() {
-  return <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
-}
-function NextIcon() {
-  return <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zm2.5-6 6-4.25v8.5L8.5 12zM16 6h2v12h-2z"/></svg>
-}
-function PrevIconLg() {
-  return <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
-}
-function NextIconLg() {
-  return <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zm2.5-6 6-4.25v8.5L8.5 12zM16 6h2v12h-2z"/></svg>
-}
-function ShuffleIcon() {
-  return <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M16 3h5v5M4 20l17-17M16 21h5v-5M4 4l6 6M14 14l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-}
-function RepeatIcon() {
-  return <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 2l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
 }
 function VolumeIcon() {
   return <svg width="14" height="14" viewBox="0 0 24 24" fill="#888"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
