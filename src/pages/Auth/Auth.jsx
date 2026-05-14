@@ -45,7 +45,7 @@ export default function Auth() {
             <div className="auth-form" key="login" data-dir={direction}>
               <div className="form-group">
                 <label>Adresse e-mail</label>
-                <input type="email" placeholder="exemple@email.com" />
+                <input type="email" placeholder="exemple@gmail.com" />
               </div>
               <div className="form-group">
                 <div className="form-group-header">
@@ -70,7 +70,7 @@ export default function Auth() {
               </div>
               <div className="form-group">
                 <label>Adresse e-mail</label>
-                <input type="email" placeholder="exemple@email.com" />
+                <input type="email" placeholder="exemple@gmail.com" />
               </div>
               <div className="form-group">
                 <label>Mot de passe</label>
